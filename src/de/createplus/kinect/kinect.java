@@ -1,10 +1,12 @@
 package de.createplus.kinect;
+import de.createplus.data.manager;
 import edu.ufl.digitalworlds.j4k.J4KSDK;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class kinect extends J4KSDK{
+    public manager manager;
     @Override
     public void onDepthFrameEvent(short[] depth_frame, byte[] body_index, float[] xyz, float[] uv) {}
 
