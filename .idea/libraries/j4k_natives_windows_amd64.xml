@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="j4k-natives-windows-amd64">
+    <CLASSES />
+    <JAVADOC />
+    <NATIVE>
+      <root url="jar://$USER_HOME$/Desktop/Coding/jars/j4k-natives-windows-amd64.jar!/" />
+    </NATIVE>
+    <SOURCES />
+  </library>
+</component>
