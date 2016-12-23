@@ -8,13 +8,17 @@ import java.awt.image.BufferedImage;
 public class kinect extends J4KSDK{
     public manager manager;
     @Override
-    public void onDepthFrameEvent(short[] depth_frame, byte[] body_index, float[] xyz, float[] uv) {}
+    public void onDepthFrameEvent(short[] depth_frame, byte[] body_index, float[] xyz, float[] uv) {
+        manager.KinectDepth = scaleImage(createDepthImage(xyz,getDepthWidth(),getDepthHeight()),getColorWidth(),getColorHeight());
+    }
 
     @Override
     public void onSkeletonFrameEvent(boolean[] skeleton_tracked, float[] positions,float[] orientations, byte[] joint_status) {}
 
     @Override
-    public void onColorFrameEvent(byte[] color_frame) {}
+    public void onColorFrameEvent(byte[] color_frame) {
+        manager.KinectColor = createRGBImage(color_frame, getColorWidth(), getColorHeight());
+    }
 
 
     //---------------------------------[Standart Images]---------------------------------
@@ -182,7 +186,7 @@ public class kinect extends J4KSDK{
     }
 
     //---------------------------------[Surfaces]---------------------------------
-    public BufferedImage MatchDepthColorLines(BufferedImage DepthS, BufferedImage ColorS){
+    /*public BufferedImage MatchDepthColorLines(BufferedImage DepthS, BufferedImage ColorS){
         int ColorLineTrigger = 10;
         BufferedImage Depth = unsign(DepthS);
         BufferedImage Color = unsign(ColorS);
@@ -204,7 +208,7 @@ public class kinect extends J4KSDK{
             }
         }
         return Result;
-    }
+    }*/
 
 
     //---------------------------------[usefull Methods]---------------------------------
